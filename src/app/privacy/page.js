@@ -2,24 +2,21 @@
 
 export default function PrivacyPolicyPage() {
   return (
-      <div className="mx-auto px-4 py-16">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-extrabold leading-tight tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-400 to-indigo-500 drop-shadow-md">
+      <div className="mx-auto px-4 py-12 sm:py-16">
+        <div className="text-center mb-12 md:mb-16">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight mb-4 sm:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-400 to-indigo-500 drop-shadow-md">
             Privacy Policy
           </h1>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
             Your privacy matters. At Link Shorti, we have a few fundamental principles.
           </p>
         </div>
 
-        {/* Content */}
-        <div className="space-y-12 max-w-6xl mx-auto">
-          {/* Contact Information */}
+        <div className="space-y-8 sm:space-y-12 max-w-6xl mx-auto">
           <div className="relative group">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-300 rounded-2xl blur opacity-50 group-hover:opacity-100 transition duration-700"></div>
-            <div className="relative bg-white  rounded-2xl p-8 md:p-10 transition-transform transform group-hover:scale-[1.02]">
-              <h2 className="text-3xl font-bold mb-5 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-400">
+            <div className="relative bg-white  rounded-2xl p-6 sm:p-8 md:p-10 transition-transform transform group-hover:scale-[1.02]">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-5 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-400">
                 Contact Information
               </h2>
               <p className="text-gray-700 leading-relaxed">
@@ -28,11 +25,10 @@ export default function PrivacyPolicyPage() {
             </div>
           </div>
 
-          {/* Our Commitment */}
           <div className="relative group">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-300 rounded-2xl blur opacity-50 group-hover:opacity-100 transition duration-700"></div>
-            <div className="relative bg-white  rounded-2xl p-8 md:p-10 transition-transform transform group-hover:scale-[1.02]">
-              <h2 className="text-3xl font-bold mb-5 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-400">
+            <div className="relative bg-white  rounded-2xl p-6 sm:p-8 md:p-10 transition-transform transform group-hover:scale-[1.02]">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-5 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-400">
                 Our Commitment
               </h2>
               <p className="text-gray-700 leading-relaxed">
@@ -41,11 +37,10 @@ export default function PrivacyPolicyPage() {
             </div>
           </div>
 
-          {/* Log Files */}
           <div className="relative group">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-300 rounded-2xl blur opacity-50 group-hover:opacity-100 transition duration-700"></div>
-            <div className="relative bg-white  rounded-2xl p-8 md:p-10 transition-transform transform group-hover:scale-[1.02]">
-              <h2 className="text-3xl font-bold mb-5 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-400">
+            <div className="relative bg-white  rounded-2xl p-6 sm:p-8 md:p-10 transition-transform transform group-hover:scale-[1.02]">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-5 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-400">
                 Log Files
               </h2>
               <p className="text-gray-700 leading-relaxed">
@@ -54,11 +49,10 @@ export default function PrivacyPolicyPage() {
             </div>
           </div>
 
-          {/* Cookies and Web Beacons */}
           <div className="relative group">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-300 rounded-2xl blur opacity-50 group-hover:opacity-100 transition duration-700"></div>
-            <div className="relative bg-white  rounded-2xl p-8 md:p-10 transition-transform transform group-hover:scale-[1.02]">
-              <h2 className="text-3xl font-bold mb-5 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-400">
+            <div className="relative bg-white  rounded-2xl p-6 sm:p-8 md:p-10 transition-transform transform group-hover:scale-[1.02]">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-5 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-400">
                 Cookies and Web Beacons
               </h2>
               <p className="text-gray-700 leading-relaxed">
@@ -67,11 +61,10 @@ export default function PrivacyPolicyPage() {
             </div>
           </div>
 
-          {/* DoubleClick DART Cookie */}
           <div className="relative group">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-300 rounded-2xl blur opacity-50 group-hover:opacity-100 transition duration-700"></div>
-            <div className="relative bg-white  rounded-2xl p-8 md:p-10 transition-transform transform group-hover:scale-[1.02]">
-              <h2 className="text-3xl font-bold mb-5 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-400">
+            <div className="relative bg-white  rounded-2xl p-6 sm:p-8 md:p-10 transition-transform transform group-hover:scale-[1.02]">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-5 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-400">
                 DoubleClick DART Cookie
               </h2>
               <ul className="list-disc list-inside text-gray-700 space-y-3">
@@ -82,11 +75,10 @@ export default function PrivacyPolicyPage() {
             </div>
           </div>
 
-          {/* Advertising Partners */}
           <div className="relative group">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-300 rounded-2xl blur opacity-50 group-hover:opacity-100 transition duration-700"></div>
-            <div className="relative bg-white  rounded-2xl p-8 md:p-10 transition-transform transform group-hover:scale-[1.02]">
-              <h2 className="text-3xl font-bold mb-5 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-400">
+            <div className="relative bg-white  rounded-2xl p-6 sm:p-8 md:p-10 transition-transform transform group-hover:scale-[1.02]">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-5 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-400">
                 Advertising Partners
               </h2>
               <p className="text-gray-700 leading-relaxed">
@@ -101,11 +93,10 @@ export default function PrivacyPolicyPage() {
             </div>
           </div>
 
-          {/* Third-Party Policies */}
           <div className="relative group">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-300 rounded-2xl blur opacity-50 group-hover:opacity-100 transition duration-700"></div>
-            <div className="relative bg-white  rounded-2xl p-8 md:p-10 transition-transform transform group-hover:scale-[1.02]">
-              <h2 className="text-3xl font-bold mb-5 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-400">
+            <div className="relative bg-white  rounded-2xl p-6 sm:p-8 md:p-10 transition-transform transform group-hover:scale-[1.02]">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-5 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-400">
                 Third-Party Policies
               </h2>
               <p className="text-gray-700 leading-relaxed">
@@ -114,11 +105,10 @@ export default function PrivacyPolicyPage() {
             </div>
           </div>
 
-          {/* Cookie Management */}
           <div className="relative group">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-300 rounded-2xl blur opacity-50 group-hover:opacity-100 transition duration-700"></div>
-            <div className="relative bg-white  rounded-2xl p-8 md:p-10 transition-transform transform group-hover:scale-[1.02]">
-              <h2 className="text-3xl font-bold mb-5 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-400">
+            <div className="relative bg-white  rounded-2xl p-6 sm:p-8 md:p-10 transition-transform transform group-hover:scale-[1.02]">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-5 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-400">
                 Cookie Management
               </h2>
               <p className="text-gray-700 leading-relaxed">

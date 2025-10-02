@@ -20,7 +20,7 @@ const GetStartedBtn = () => {
           --color-background-hover: #ff1472;
           --color-outline: #ff145a40;
           --color-shadow: #00000040;
-          cursor: pointer;
+          cursor: pointer; 
           display: flex;
           justify-content: center;
           align-items: center;
@@ -128,6 +128,12 @@ const GetStartedBtn = () => {
           100% {
             outline: 0.4em solid transparent;
             outline-offset: 0.4em;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .styled-button {
+            --main-size: 1.1rem;
           }
         }
       `}

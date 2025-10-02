@@ -134,16 +134,16 @@ export default function Header() {
   return (
     <>
       {session && !session.user.isEmailVerified && pathname !== "/verify" && (
-        <div className="bg-yellow-100 text-yellow-800 py-2 px-4 flex items-center justify-center text-base text-center md:text-left space-x-2">
-          <span className="flex items-center space-x-2">
-            <Mail className="h-5 w-5 text-yellow-500" />
-            <span>
+        <div className="bg-yellow-100 text-yellow-800 py-2 px-4 flex flex-col sm:flex-row items-center justify-center text-sm sm:text-base text-center gap-2">
+          <span className="flex items-center gap-2">
+            <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-yellow-500 flex-shrink-0" />
+            <span className="text-xs sm:text-base">
               Verify your email to unlock all features and start earning.
             </span>
           </span>
           <Link
             href="/verify"
-            className="underline text-base font-medium hover:text-yellow-900"
+            className="underline text-sm sm:text-base font-medium hover:text-yellow-900 whitespace-nowrap"
           >
             Verify Now
           </Link>

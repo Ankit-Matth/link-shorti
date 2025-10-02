@@ -5,20 +5,18 @@ import { Users, Target, Eye, TrendingUp, Zap, Award } from 'lucide-react';
 export default function AboutPage() {
   return (
     <div className="bg-gray-50 text-gray-800">
-      {/* Hero Section */}
-      <section className="relative text-center py-20 px-4 overflow-hidden bg-gradient-to-r from-cyan-100 via-blue-100 to-purple-100">
+      <section className="relative text-center py-16 sm:py-20 px-4 overflow-hidden bg-gradient-to-r from-cyan-100 via-blue-100 to-purple-100">
         <div className="relative z-10">
-          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-blue-600">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-blue-600">
             About  LinkShorti
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg md:text-xl text-gray-600">
+          <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg md:text-xl text-gray-600">
             We are a passionate team dedicated to providing the best link shortening service in the world.
           </p>
         </div>
       </section>
 
-      {/* Our Story Section */}
-      <section className="py-24 sm:py-32 px-6 lg:px-8">
+      <section className="py-16 sm:py-24 px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold tracking-tighter text-center text-gray-900">Our Story</h2>
           <div className="mt-12 text-lg text-gray-600 space-y-6 text-justify">
@@ -32,9 +30,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Our Mission, Vision, and Values Section */}
-      <section className="bg-white py-24 sm:py-32 px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+      <section className="bg-white py-16 sm:py-24 px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           <div className="flex flex-col items-center text-center">
             <div className="mb-4 rounded-full bg-cyan-100 p-4 text-cyan-600">
               <Target className="h-8 w-8" />
@@ -65,14 +62,13 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Our Team Section */}
-      <section className="py-24 sm:py-32 px-6 lg:px-8">
+      <section className="py-16 sm:py-24 px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-4xl font-bold tracking-tighter text-center text-gray-900">Meet the Team</h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-center text-gray-600">
             We are a diverse team of engineers, designers, and marketers who are passionate about creating beautiful and functional products.
           </p>
-          <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
+          <div className="mt-16 sm:mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-12 gap-x-8">
             <div className="text-center">
               <img className="mx-auto h-32 w-32 rounded-full" src="https://i.pravatar.cc/150?img=1" alt="" />
               <h3 className="mt-6 text-xl font-bold text-gray-900">Jane Doe</h3>
@@ -92,8 +88,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-white py-20 sm:py-24 px-6 lg:px-8">
+      <section className="bg-white py-16 sm:py-20 px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold tracking-tighter text-gray-900 sm:text-4xl">Ready to get started?</h2>
           <p className="mt-4 text-lg text-gray-600">

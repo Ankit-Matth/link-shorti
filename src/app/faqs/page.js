@@ -9,12 +9,12 @@ const FaqItem = ({ question, answer }) => {
   return (
     <div className="relative group">
       <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-300 rounded-2xl blur opacity-50 group-hover:opacity-100 transition duration-700"></div>
-      <div className="relative bg-white rounded-2xl p-8 md:p-10">
+      <div className="relative bg-white rounded-2xl p-6 sm:p-8 md:p-10">
         <button
           className="flex w-full items-center justify-between text-left text-lg font-medium text-gray-800 cursor-pointer"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-400">{question}</span>
+          <span className="text-xl sm:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-400">{question}</span>
           {isOpen ? (
             <Minus className="h-6 w-6 text-purple-500" />
           ) : (
@@ -27,7 +27,7 @@ const FaqItem = ({ question, answer }) => {
           }`}
         >
           <div className="overflow-hidden">
-            <p className="text-gray-700 leading-relaxed">{answer}</p>
+            <p className="text-gray-700 leading-relaxed text-base sm:text-lg">{answer}</p>
           </div>
         </div>
       </div>
@@ -81,16 +81,16 @@ export default function FaqPage() {
   ];
 
   return (
-      <div className="mx-auto px-4 py-16">
-        <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-extrabold leading-tight tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-400 to-indigo-500 drop-shadow-md">
+      <div className="mx-auto px-4 py-12 sm:py-16">
+        <div className="text-center mb-12 md:mb-16">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight mb-4 sm:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-400 to-indigo-500 drop-shadow-md">
             Frequently Asked Questions
           </h1>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
             Find answers to the most common questions about LinkShorti.
           </p>
         </div>
-        <div className="max-w-6xl mx-auto space-y-8">
+        <div className="max-w-6xl mx-auto space-y-6 sm:space-y-8">
           {faqs.map((faq, index) => (
             <FaqItem key={index} question={faq.question} answer={faq.answer} />
           ))}

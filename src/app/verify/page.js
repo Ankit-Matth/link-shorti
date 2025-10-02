@@ -178,11 +178,11 @@ export default function VerifyPage() {
         </div>
       </div>
 
-      <main className="flex items-center justify-center p-6 sm:p-8 lg:p-12">
+      <main className="flex items-center justify-center p-4 sm:p-8 lg:p-12">
           <div className="w-full max-w-md">
-            <div className="rounded-xl border border-slate-200 bg-white p-8 sm:p-10 shadow-sm">
+            <div className="rounded-xl border border-slate-200 bg-white p-6 sm:p-10 shadow-sm">
                 <div className="text-center mb-8">
-                    <h2 className="text-2xl font-bold tracking-tight text-slate-900">
+                    <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900">
                         Account Verification
                     </h2>
                     <p className="mt-2 text-sm text-slate-600">

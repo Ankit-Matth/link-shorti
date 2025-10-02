@@ -7,9 +7,8 @@ import { Gem } from "lucide-react";
 export default function Footer () {
   return (
     <footer className="bg-black text-gray-300 pt-16 pb-8 px-6">
-      <div className="mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-4 gap-12">
+      <div className="mx-auto max-w-7xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12">
         
-        {/* Brand Info */}
         <div className="md:col-span-1 flex-1">
           <Link href="/" className="flex items-center gap-2 mb-4">
             <Gem size={28} className="text-cyan-400" />
@@ -22,8 +21,7 @@ export default function Footer () {
           </p>
         </div>
 
-        {/* Quick Links */}
-        <div className="flex-1 justify-self-center">
+        <div className="flex-1 sm:justify-self-center">
           <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
           <ul className="space-y-3">
             <li><FooterLink href="/privacy">Privacy Policy</FooterLink></li>
@@ -32,8 +30,7 @@ export default function Footer () {
           </ul>
         </div>
 
-                {/* Payment Icons */}
-        <div className="col-span-2">
+        <div className="sm:col-span-2">
           <h3 className="text-lg font-semibold text-white mb-4">Payout Methods (Platforms supported)</h3>
           <div>
             <img src="/platforms.jpg" className="rounded-sm w-full" alt="Platforms" />
@@ -41,15 +38,13 @@ export default function Footer () {
         </div>
       </div>
 
-      {/* Bottom Bar */}
       <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
         <p className="text-sm text-gray-500 text-center md:text-left mb-4 md:mb-0">
           &copy; {new Date().getFullYear()} LinkShorti. All rights reserved.
         </p>
 
-                {/* Social Media */}
         <div>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap justify-center md:justify-start gap-4">
             <SocialIcon href="#" icon={<Twitter size={20} />} brand="twitter" />
             <SocialIcon href="#" icon={<Facebook size={20} />} brand="facebook" />
             <SocialIcon href="#" icon={<Instagram size={20} />} brand="instagram" />

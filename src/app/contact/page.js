@@ -68,19 +68,19 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800">
-      <div className="relative text-center py-24 px-4 bg-gradient-to-r from-cyan-100 via-blue-100 to-purple-100">
-        <h1 className="text-5xl md:text-6xl font-extrabold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-blue-600">
+      <div className="relative text-center py-16 sm:py-24 px-4 bg-gradient-to-r from-cyan-100 via-blue-100 to-purple-100">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-blue-600">
           Get in Touch
         </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-lg md:text-xl text-gray-600">
+        <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg md:text-xl text-gray-600">
           We are here for you. How can we help?
         </p>
       </div>
 
-      <section className="py-16 px-6">
+      <section className="py-12 sm:py-16 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch">
-            <div className="bg-white p-8 rounded-2xl border border-gray-200 flex flex-col">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-stretch">
+            <div className="bg-white p-6 sm:p-8 rounded-2xl border border-gray-200 flex flex-col">
               <h2 className="text-3xl font-bold tracking-tighter text-gray-900">
                 Send a Message
               </h2>
@@ -149,7 +149,7 @@ export default function ContactPage() {
             </div>
 
             <div className="space-y-8 flex flex-col">
-              <div className="bg-white p-8 rounded-2xl border border-gray-200 flex-grow flex flex-col">
+              <div className="bg-white p-6 sm:p-8 rounded-2xl border border-gray-200 flex-grow flex flex-col">
                 <h3 className="text-2xl font-bold text-gray-900">Our Office</h3>
                 <p className="mt-2 text-gray-600">
                   International Tech Park, Bangalore, India
@@ -160,7 +160,7 @@ export default function ContactPage() {
               </div>
             </div>
           </div>
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 bg-white p-8 rounded-2xl border border-gray-200">
+          <div className="mt-12 sm:mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 bg-white p-6 sm:p-8 rounded-2xl border border-gray-200">
             <div className="">
               <h3 className="text-2xl font-bold text-gray-900">Contact Information</h3>
               <div className="mt-4 space-y-4">

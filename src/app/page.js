@@ -10,11 +10,10 @@ export default function Home() {
 
   return (
     <div className="bg-gray-50 text-gray-800">
-      {/* Hero Section */}
-      <section className="relative text-center py-20 px-4 overflow-hidden">
+      <section className="relative text-center py-16 sm:py-20 px-4 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-cyan-100 via-blue-100 to-purple-100 opacity-50"></div>
         <div className="relative z-10">
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-blue-600">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-blue-600">
             Shorten, Share, and Shine
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg md:text-xl text-gray-600">
@@ -23,7 +22,7 @@ export default function Home() {
           <div className="mt-10">
             <a
               href="/join-now"
-              className="inline-block font-bold py-3 px-8 rounded-full"
+              className="inline-block font-bold py-2 px-6 sm:py-3 sm:px-8 rounded-full"
             >
               <GetStartedBtn />
             </a>
@@ -31,7 +30,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Link Shortener Input */}
       <section className="relative -mt-12 z-20 px-4">
         <div className="max-w-3xl mx-auto">
           <div className="bg-white rounded-xl shadow-2xl p-4 border border-gray-200">
@@ -49,7 +47,7 @@ export default function Home() {
               />
               <button
                 type="submit"
-                className="w-full hover:cursor-pointer sm:w-auto flex items-center justify-center bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transform transition-transform hover:scale-105"
+                className="w-full hover:cursor-pointer sm:w-auto flex items-center justify-center bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold py-3 px-6 sm:px-8 rounded-lg shadow-md hover:shadow-lg transform transition-transform hover:scale-105"
               >
                 <span>Shorten</span>
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -59,10 +57,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Link Shorti? Section */}
-      <section className="py-24 sm:py-32 px-12">
+      <section className="py-20 sm:py-24 px-6 md:px-12">
         <div className="text-center">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter text-gray-900">Why Link Shorti?</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter text-gray-900">Why Link Shorti?</h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
             Highest Paying URL Shortener of 2025. Join now & earn up to $20/1000 visits.
           </p>
@@ -101,17 +98,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Numbers Speak Section */}
-      <section className="relative pb-24 px-6">
-        <div className="text-center mb-32 mt-8">
+      <section className="relative pb-20 sm:pb-24 px-6">
+        <div className="text-center mb-16 sm:mb-20 md:mb-32 mt-8">
           <p className="mb-2 text-xl text-gray-500 font-light ">Numbers Speak for Themselves</p>
-          <h2 className="text-5xl font-bold tracking-tighter text-gray-900">
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tighter text-gray-900">
             Fast Gr<span className='border-b-4 border-cyan-400 pb-3'>owing P</span>latform
           </h2>
         </div>
 
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {/* Total Clicks */}
           <StatCard
             icon={<MousePointerClick className="h-10 w-10 text-white" />}
             number={716824855}
@@ -119,7 +114,6 @@ export default function Home() {
             gradient="from-cyan-400 to-blue-500"
           />
 
-          {/* Total Links */}
           <StatCard
             icon={<LinkIcon className="h-10 w-10 text-white" />}
             number={124533257}
@@ -127,7 +121,6 @@ export default function Home() {
             gradient="from-sky-400 to-cyan-500"
           />
 
-          {/* Registered Users */}
           <StatCard
             icon={<Users className="h-10 w-10 text-white" />}
             number={934525}
@@ -142,7 +135,7 @@ export default function Home() {
 
 function FeatureCard({ icon, title, description }) {
   return (
-    <div className="bg-white p-8 rounded-2xl border border-gray-200 shadow-lg transform transition-transform hover:-translate-y-2 hover:shadow-cyan-100/50">
+    <div className="bg-white p-6 sm:p-8 rounded-2xl border border-gray-200 shadow-lg transform transition-transform hover:-translate-y-2 hover:shadow-cyan-100/50">
       <div className="flex items-center justify-center h-16 w-16 bg-gray-100 rounded-full mb-6 border border-gray-200">
         {icon}
       </div>
@@ -177,8 +170,8 @@ function StatCard({ icon, number, label, gradient }) {
 
   const animateCount = () => {
     let start = 0;
-    const duration = 2000; // ms
-    const stepTime = 1000 / 60; // ~60fps
+    const duration = 2000;
+    const stepTime = 1000 / 60;
     const increment = number / (duration / stepTime);
 
     function step() {
@@ -197,17 +190,17 @@ function StatCard({ icon, number, label, gradient }) {
   return (
     <div
       ref={ref}
-      className={`p-10 rounded-2xl shadow-lg text-center transform transition-transform 
+      className={`p-8 sm:p-10 rounded-2xl shadow-lg text-center transform transition-transform 
                   hover:-translate-y-2 hover:shadow-xl 
                   bg-gradient-to-r ${gradient}`}
     >
       <div className="flex items-center justify-center h-20 w-20 mx-auto bg-white/20 rounded-full mb-6">
         {icon}
       </div>
-      <h3 className="text-3xl font-extrabold text-white">
+      <h3 className="text-3xl sm:text-4xl font-extrabold text-white">
         {count.toLocaleString()}
       </h3>
-      <p className="mt-4 text-white/90 font-medium">{label}</p>
+      <p className="mt-2 sm:mt-4 text-white/90 font-medium">{label}</p>
     </div>
   );
 }
