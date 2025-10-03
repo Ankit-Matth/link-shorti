@@ -1,5 +1,19 @@
-// File: /models/Withdrawal.js
 import mongoose from 'mongoose';
+
+const paypalDetailsSchema = new mongoose.Schema({
+    email: { type: String, trim: true,},
+}, { _id: false });
+
+const upiDetailsSchema = new mongoose.Schema({
+    id: { type: String, trim: true, }, 
+}, { _id: false });
+
+const bankDetailsSchema = new mongoose.Schema({
+    bankName: { type: String, trim: true }, 
+    accountNumber: { type: String, trim: true }, 
+    ifscCode: { type: String, trim: true }, 
+    accountHolderName: { type: String, trim: true }, 
+}, { _id: false });
 
 const withdrawalHistorySchema = new mongoose.Schema({
     withdrawalId: {
@@ -30,16 +44,21 @@ const withdrawalHistorySchema = new mongoose.Schema({
     },
     withdrawalMethod: {
         type: String,
+        enum: ['PayPal', 'UPI', 'Bank Transfer'], 
         required: true,
     },
     withdrawalAccount: {
-        type: String,
+        type: String, 
         required: true,
     },
-});
+    methodDetails: {
+        type: mongoose.Schema.Types.Mixed,
+        required: false,
+    }
+}, { _id: false });
 
 const withdrawalSchema = new mongoose.Schema({
-    userEmail: { // Changed from 'email' in the original prompt's withdrawalSchema to 'userEmail' for consistency in API/Models
+    userEmail: {
         type: String,
         required: true,
         unique: true,
@@ -47,14 +66,30 @@ const withdrawalSchema = new mongoose.Schema({
     availableBalance: {
         type: Number,
         default: 0,
+        min: 0,
     },
     pendingBalance: {
         type: Number,
         default: 0,
+        min: 0,
     },
     totalWithdrawn: {
         type: Number,
         default: 0,
+        min: 0,
+    },
+    withdrawalDetails: {
+        type: new mongoose.Schema({
+            selectedMethod: {
+                type: String,
+                enum: ['PayPal', 'UPI', 'Bank Transfer', ''],
+                default: '', 
+            },
+            paypal: { type: paypalDetailsSchema },
+            upi: { type: upiDetailsSchema },
+            bank: { type: bankDetailsSchema },
+        }, { _id: false }), 
+        default: () => ({})
     },
     history: [withdrawalHistorySchema],
 }, { timestamps: true });

@@ -1,19 +1,18 @@
-// File: /api/withdrawal/request/route.js
 import { NextResponse } from 'next/server';
-import connectDB from '@/utils/dbConfig';
+import connectDB from '@/utils/dbConfig'; 
 import Withdrawal from '@/models/Withdrawal';
 
 export async function POST(request) {
     try {
         await connectDB();
 
-        const { userEmail, amount } = await request.json();
+        const { userEmail, amount } = await request.json(); 
 
         if (!userEmail || typeof amount !== 'number' || amount <= 0) {
             return NextResponse.json({ error: 'Invalid request data' }, { status: 400 });
         }
         
-        const MIN_WITHDRAWAL = 5.00; // Match frontend minimum
+        const MIN_WITHDRAWAL = 5.00;
 
         const withdrawalDoc = await Withdrawal.findOne({ userEmail });
 
@@ -21,31 +20,69 @@ export async function POST(request) {
             return NextResponse.json({ error: 'Withdrawal account not found' }, { status: 404 });
         }
         
-        // 1. Basic Validation: Check available balance
-        if (withdrawalDoc.availableBalance < MIN_WITHDRAWAL || withdrawalDoc.availableBalance < amount) {
-            return NextResponse.json({ error: 'Insufficient available balance for withdrawal' }, { status: 403 });
+        const details = withdrawalDoc.withdrawalDetails;
+        const method = details?.selectedMethod;
+        let accountSummary = null;
+        let methodDetails = {};
+
+        if (!method) {
+            return NextResponse.json({ error: 'No withdrawal method selected' }, { status: 400 });
         }
 
-        // 2. Create the new history entry (the "request")
+        const detailsData = details[method.toLowerCase().replace(' ', '')];
+        if (!detailsData) {
+             return NextResponse.json({ error: `Details for ${method} not saved` }, { status: 400 });
+        }
+
+        switch (method) {
+            case 'PayPal':
+                methodDetails = detailsData;
+                accountSummary = detailsData.email;
+                if (!accountSummary) return NextResponse.json({ error: 'PayPal email not set' }, { status: 400 });
+                break;
+            case 'UPI':
+                methodDetails = detailsData;
+                accountSummary = detailsData.id;
+                if (!accountSummary) return NextResponse.json({ error: 'UPI ID not set' }, { status: 400 });
+                break;
+            case 'Bank Transfer':
+                methodDetails = detailsData;
+                accountSummary = detailsData.accountNumber;
+                if (!accountSummary || !detailsData.ifscCode || !detailsData.accountHolderName || !detailsData.bankName) {
+                    return NextResponse.json({ error: 'Full bank details not set' }, { status: 400 });
+                }
+                break;
+            default:
+                return NextResponse.json({ error: 'Unsupported withdrawal method' }, { status: 400 });
+        }
+
+        if (withdrawalDoc.availableBalance < MIN_WITHDRAWAL || withdrawalDoc.availableBalance < amount) {
+            return NextResponse.json({ 
+                error: `Insufficient available balance for withdrawal. Required: ${MIN_WITHDRAWAL}`, 
+                available: withdrawalDoc.availableBalance 
+            }, { status: 403 });
+        }
+        
+        const withdrawalAmount = withdrawalDoc.availableBalance; 
+
         const newHistoryItem = {
-            withdrawalId: `WID-${Date.now()}-${Math.floor(Math.random() * 1000)}`, // Unique ID
+            withdrawalId: `WID-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
             date: new Date(),
-            status: 'Pending', // All new requests are pending
-            publisherEarnings: amount, // Assuming the entire available balance is earnings
+            status: 'Pending',
+            publisherEarnings: withdrawalAmount,
             referralEarnings: 0,
-            totalAmount: amount,
-            withdrawalMethod: 'PayPal', // Placeholder: Should come from user's payment details
-            withdrawalAccount: 'user@example.com', // Placeholder: Should come from user's payment details
+            totalAmount: withdrawalAmount,
+            withdrawalMethod: method, 
+            withdrawalAccount: accountSummary,
+            methodDetails: methodDetails,
         };
 
-        // 3. Update the main Withdrawal Document (atomic update is best practice)
-        withdrawalDoc.availableBalance -= amount; // Deduct from available
-        withdrawalDoc.pendingBalance += amount; // Add to pending
-        withdrawalDoc.history.unshift(newHistoryItem); // Add new request to the front of history
+        withdrawalDoc.availableBalance -= withdrawalAmount;
+        withdrawalDoc.pendingBalance += withdrawalAmount;
+        withdrawalDoc.history.unshift(newHistoryItem);
 
         await withdrawalDoc.save();
 
-        // 4. Return the updated document
         return NextResponse.json({ 
             message: 'Withdrawal request submitted successfully.', 
             updatedWithdrawal: withdrawalDoc 
@@ -53,6 +90,6 @@ export async function POST(request) {
 
     } catch (error) {
         console.error('Error processing withdrawal request:', error);
-        return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+        return NextResponse.json({ error: error.message || 'Internal Server Error' }, { status: 500 });
     }
 }

@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import connectDB from '@/utils/dbConfig';
 import { signIn } from '@/auth';
 import User from '@/models/Users';
+import Statistics from '@/models/Statistics';
+import Withdrawal from '@/models/Withdrawal';
 import bcrypt from 'bcryptjs';
 
 export async function POST(request) {
@@ -10,9 +12,7 @@ export async function POST(request) {
 
     connectDB();
 
-    // 🔹 If `name` exists → Signup
     if (name) {
-      // Check if user already exists
       const existingUser = await User.findOne({ email });
       if (existingUser) {
         return NextResponse.json(
@@ -21,11 +21,9 @@ export async function POST(request) {
         );
       }
 
-      // Hash password
       const salt = await bcrypt.genSalt(10);
       const hashedPassword = await bcrypt.hash(password, salt);
 
-      // Create new user
       const newUser = new User({
         fullName: name,
         email,
@@ -34,11 +32,21 @@ export async function POST(request) {
 
       await newUser.save();
 
+      const newStatistics = new Statistics({
+        userEmail: email,
+      });
+      await newStatistics.save();
+
+      const newWithdrawal = new Withdrawal({
+        userEmail: email,
+      });
+      await newWithdrawal.save();
+      
       return NextResponse.json(
         { success: true, message: "User created successfully." },
         { status: 201 }
       );
-    }  
+    } 
     else {
       const user = await User.findOne({ email });
 

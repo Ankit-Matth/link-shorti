@@ -36,7 +36,7 @@ const DashboardPage = () => {
             const errorData = await response.json();
             throw new Error(errorData.error || `Failed to fetch dashboard data: Status ${response.status}`);
         }
-
+ 
         const data = await response.json();
         
         setDashboardData({
