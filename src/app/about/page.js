@@ -1,6 +1,7 @@
 'use client';
 
 import { Users, Target, Eye, TrendingUp, Zap, Award } from 'lucide-react';
+import Image from 'next/image';
 
 export default function AboutPage() {
   return (
@@ -70,17 +71,17 @@ export default function AboutPage() {
           </p>
           <div className="mt-16 sm:mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-12 gap-x-8">
             <div className="text-center">
-              <img className="mx-auto h-32 w-32 rounded-full" src="https://i.pravatar.cc/150?img=1" alt="" />
+              <Image className="mx-auto rounded-full" src="https://i.pravatar.cc/150?img=1" alt="Jane Doe, Co-Founder & CEO" width={128} height={128} />
               <h3 className="mt-6 text-xl font-bold text-gray-900">Jane Doe</h3>
               <p className="text-gray-600">Co-Founder & CEO</p>
             </div>
             <div className="text-center">
-              <img className="mx-auto h-32 w-32 rounded-full" src="https://i.pravatar.cc/150?img=2" alt="" />
+              <Image className="mx-auto rounded-full" src="https://i.pravatar.cc/150?img=2" alt="John Smith, Co-Founder & CTO" width={128} height={128} />
               <h3 className="mt-6 text-xl font-bold text-gray-900">John Smith</h3>
               <p className="text-gray-600">Co-Founder & CTO</p>
             </div>
             <div className="text-center">
-              <img className="mx-auto h-32 w-32 rounded-full" src="https://i.pravatar.cc/150?img=3" alt="" />
+              <Image className="mx-auto rounded-full" src="https://i.pravatar.cc/150?img=3" alt="Emily Jones, Lead Designer" width={128} height={128} />
               <h3 className="mt-6 text-xl font-bold text-gray-900">Emily Jones</h3>
               <p className="text-gray-600">Lead Designer</p>
             </div>

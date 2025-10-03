@@ -3,7 +3,7 @@
 import GetStartedBtn from '@/components/StyledButtons';
 import { ArrowRight, DollarSign, Users, BarChart, Shield, Zap, Headset, LinkIcon, MousePointerClick } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 
 export default function Home() {
   const router = useRouter();
@@ -102,7 +102,7 @@ export default function Home() {
         <div className="text-center mb-16 sm:mb-20 md:mb-32 mt-8">
           <p className="mb-2 text-xl text-gray-500 font-light ">Numbers Speak for Themselves</p>
           <h2 className="text-4xl sm:text-5xl font-bold tracking-tighter text-gray-900">
-            Fast Gr<span className='border-b-4 border-cyan-400 pb-3'>owing P</span>latform
+            Fast Gr<span className="border-b-4 border-cyan-400 pb-3">owing P</span>latform
           </h2>
         </div>
 
@@ -150,25 +150,7 @@ function StatCard({ icon, number, label, gradient }) {
   const [hasAnimated, setHasAnimated] = useState(false);
   const ref = useRef(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated) {
-          animateCount();
-          setHasAnimated(true);
-        }
-      },
-      { threshold: 0.4 }
-    );
-
-    if (ref.current) observer.observe(ref.current);
-
-    return () => {
-      if (ref.current) observer.unobserve(ref.current);
-    };
-  }, [number, hasAnimated]);
-
-  const animateCount = () => {
+  const animateCount = useCallback(() => {
     let start = 0;
     const duration = 2000;
     const stepTime = 1000 / 60;
@@ -185,7 +167,26 @@ function StatCard({ icon, number, label, gradient }) {
     }
 
     requestAnimationFrame(step);
-  };
+  }, [number]);
+
+  useEffect(() => {
+    const currentRef = ref.current;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          animateCount();
+          setHasAnimated(true);
+        }
+      },
+      { threshold: 0.4 }
+    );
+
+    if (currentRef) observer.observe(currentRef);
+
+    return () => {
+      if (currentRef) observer.unobserve(currentRef);
+    };
+  }, [number, hasAnimated, animateCount]);
 
   return (
     <div

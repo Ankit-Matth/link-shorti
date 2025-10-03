@@ -2,6 +2,7 @@
 import React from "react";
 import { Facebook, Instagram, Linkedin, Mail, Twitter, Youtube, Twitch, Discord } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { Gem } from "lucide-react";
 
 export default function Footer () {
@@ -33,7 +34,7 @@ export default function Footer () {
         <div className="sm:col-span-2">
           <h3 className="text-lg font-semibold text-white mb-4">Payout Methods (Platforms supported)</h3>
           <div>
-            <img src="/platforms.jpg" className="rounded-sm w-full" alt="Platforms" />
+            <Image src="/platforms.jpg" className="rounded-sm" alt="Platforms" width={1600} height={900} layout="responsive" />
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 
 const rates = [
     { country: 'United States', code: 'US', rate: 22.0 },
@@ -51,10 +52,12 @@ export default function PayoutRatesPage() {
                             {rates.map((rate, index) => (
                                 <tr key={index} className="border-t border-gray-700 hover:bg-gray-700/50 transition-colors duration-200">
                                     <td className="p-5 text-lg flex items-center">
-                                        <img 
+                                        <Image 
                                             src={rate.code === 'WW' ? 'https://cdn-icons-png.flaticon.com/512/616/616616.png' : `https://flagsapi.com/${rate.code}/flat/64.png`}
                                             alt={`${rate.country} flag`}
-                                            className="w-10 h-auto mr-4"
+                                            width={40}
+                                            height={rate.code === 'WW' ? 40 : 30}
+                                            className="mr-4"
                                         />
                                         {rate.country}
                                     </td>
